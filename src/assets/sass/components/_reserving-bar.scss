@@ -1,0 +1,40 @@
+.reserving-bar {
+  height: 6rem;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  background-color: var(--color-secondary-3);
+  z-index: 500;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  &__button {
+    width: 5rem;
+    height: 5rem;
+    border: none;
+    background-color: white;
+    padding: .5rem;
+    border-radius: 50%;
+
+    &--end {
+      color: var(--color-red);
+    }
+
+    &--finish {
+      color: var(--color-green);
+    }
+  }
+
+  &::after {
+    content: 'تأكيد أو إلغاء الحجز';
+    width: 50rem;
+    height: 6rem;
+    font-size: $font-size-large-2;
+    font-weight: 700;
+    color: white;
+    @include flexCenter;
+    animation: fadeOut 1.5s both infinite;
+    position: absolute;
+  }
+}

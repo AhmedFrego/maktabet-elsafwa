@@ -1,0 +1,74 @@
+@keyframes floating {
+
+  0%,
+  100% {
+    transform: translateY(2rem);
+  }
+
+  50% {
+    transform: translateY(-4rem);
+  }
+}
+
+@keyframes toBottom {
+
+  0%,
+  20%,
+  90%,
+  100% {
+    transform: translateY(-1rem);
+  }
+
+  30%,
+  50% {
+    transform: translateY(.5rem);
+  }
+
+  40% {
+    transform: translateY(0rem);
+  }
+}
+
+@keyframes toRight {
+
+  20% {
+    transform: translateX(-1rem);
+  }
+
+  30%,
+  50% {
+    transform: translateX(.5rem);
+  }
+
+  0%,
+  100%,
+  40% {
+    transform: translateX(0rem);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    transform: scale(.9);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+
+  to {
+    transform: scale(1.1);
+    opacity: 0;
+  }
+}
+
+@keyframes reRotate {
+  from {
+    right: 0;
+    transform-origin: top right;
+  }
+
+  to {
+    transform: rotate(-20deg);
+  }
+}

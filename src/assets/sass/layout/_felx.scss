@@ -1,0 +1,37 @@
+.flex {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: var(--max-width);
+  max-width: 90%;
+
+  &--column {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &--2 { gap: 2vw; }
+  &--3 { gap: 3vw; }
+  &--4 { 
+    row-gap: 3vw;
+    column-gap: 4vw;
+  }
+  &--6 {
+    column-gap: 6vw;
+    row-gap: 3vw;
+  }
+
+  &--img {
+    flex-wrap: nowrap;
+    align-items: center;
+    height: 100%;
+    & > img { max-width:calc( 40% - 3rem); }
+
+    @media (max-width:$bP-smaller) {
+      flex-direction: column;
+      & > img {
+        max-width: 100%;
+      }
+    }
+    }
+}

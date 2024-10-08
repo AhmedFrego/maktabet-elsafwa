@@ -1,0 +1,33 @@
+.modal {
+  width: 100vw;
+  height: 100vh;
+  background-color: $color-shadow-8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  &>p {
+    position: fixed;
+    top: 6vh;
+    left: 50%;
+    transform: translate(-50%);
+    font-size: $font-size-large-1;
+    color: white;
+
+  }
+
+  &__content {
+    width: max-content;
+    height: max-content;
+    padding: 3rem;
+    border-radius: var(--border-radius-largest);
+    background-color: $color-shadow-light-8;
+    overflow-y: auto;
+    max-height: 90vh;
+
+  }
+}

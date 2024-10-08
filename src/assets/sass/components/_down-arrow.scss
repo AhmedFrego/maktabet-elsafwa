@@ -1,0 +1,15 @@
+.down-arrow {
+  position: absolute;
+  left: calc(50% - 3.5rem/2);
+  top: 10rem;
+  animation: toBottom 2s  .5s both infinite;
+
+
+&--home { top: 92vh; }
+  & svg {
+    height: 3.5rem;
+    color: var(--color-main-7);
+    width:3.5rem;
+  }
+
+}

@@ -1,0 +1,70 @@
+.section-home {
+  height: calc(95vh - 11rem);
+  overflow: hidden;
+  position: relative;
+}
+
+.section-articles {
+  padding: $padding-section-largest $padding-section-default;
+  margin: -#{$margin-section-larger} 0;
+}
+
+
+.section-gallery,
+.section-testimonials,
+.section-services,
+.section-features,
+.section-members,
+.section-skills,
+.section-work,
+.section-event,
+.section-videos,
+.section-stats {
+  padding: $padding-section-small;
+  position: relative;
+}
+
+.section-pricing {
+  padding: $padding-section-default $padding-section-large;
+  
+}
+.section-side-note {
+  padding: $padding-section-smallest;
+  
+}
+
+.section-videos {
+  @include backgroundDots
+}
+
+.section-stats {
+  background-image: linear-gradient(to right, rgba(white, .9) 100%, transparent 100%);
+  background-size: cover;
+
+  &>h2 {line-height: 1}
+}
+
+.section-discount {
+  margin:-#{$margin-section-smallest} 0;
+  display: flex;
+  z-index: -1;
+
+  &>* {
+    flex: 0 0 50%;
+    justify-content: flex-start;
+    padding: $padding-section-small;
+  }
+
+  @media (max-width:$bP-small) {
+    flex-direction: column;
+
+    &>*{
+      max-width: 100%;
+    }
+    
+    & h3 {
+      font-size: $font-size-large-4;
+    }
+  }
+
+}

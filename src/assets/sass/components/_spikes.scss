@@ -1,0 +1,25 @@
+.spikes {
+  position: relative;
+  height: max-content;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    z-index: 4;
+    height: 3rem;
+    width: 100%;
+    background-size: 3rem 3rem;
+  }
+
+  &--secondary-0::before {
+    background-image:
+      linear-gradient(225deg, var(--color-secondary-0) 25%, transparent 25%),
+      linear-gradient(135deg, var(--color-secondary-0) 25%, transparent 25%);
+  }
+
+  &--rotated {
+    transform: rotate(-7deg) translateY(-1px);
+    transform-origin: top left;
+  }
+}

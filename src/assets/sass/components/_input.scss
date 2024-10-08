@@ -1,0 +1,136 @@
+.input {
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex: 1;
+  justify-content: end;
+  background-size: 100% 2px;
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  transition: all .5s;
+
+  &>.input__input {
+    width: 100%;
+    height: 100%;
+    transition: all .5s;
+  }
+
+  &.input--active {
+    box-shadow: 0 0 .5rem $color-shadow-1 inset;
+
+    &.input--big {
+      height: 19rem;
+    }
+  }
+
+  &.full-text {
+    padding: 3rem 1rem;
+    background-color: var(--color-secondary-0);
+  }
+
+  &__input {
+    background-color: transparent;
+    border: none;
+    font-size: $font-size-large-3;
+    color: var(--color-main-9);
+    font-family: inherit;
+    resize: none;
+    overflow: hidden;
+
+    &:focus {
+      outline: none
+    }
+  }
+
+  &.input--form {
+    height: 5rem;
+    width: 35rem;
+    margin-bottom: 2rem;
+    background-image: linear-gradient(to right, var(--color-blue) 100%, transparent 100%);
+    background-color: var(--color-secondary-0);
+
+    &>.input__label {
+      position: absolute;
+      right: 2rem;
+      color: var(--color-secondary-3);
+      font-weight: 600;
+      font-size: 1.6rem;
+      transition: all .5s;
+      cursor: text;
+    }
+  }
+
+  &.input--area.input--active {
+    height: 20rem;
+  }
+
+  &.input--search {
+
+    align-self: center;
+
+    &>.input__input {
+      width: 0;
+      transition: all .5s;
+    }
+
+    &.input--active {
+      &>.input__input {
+        width: 30rem;
+        padding: 1rem 5rem 1rem 2rem;
+        box-shadow: 0 0 .5rem $color-shadow-4;
+        color: var(--color-secondary-6);
+        font-size: $font-size-large-1;
+      }
+
+      &>.input--search__icon {
+        transform: translateX(-4rem) rotateY(180deg);
+        right: 26rem;
+      }
+    }
+
+    &>.input--search__icon {
+
+      color: var(--color-blue);
+      width: 3rem;
+      transition: all .5s;
+      cursor: pointer;
+    }
+  }
+
+
+
+  &>p {
+    transform: translateY(-2rem);
+    position: absolute;
+    bottom: -2rem;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.3rem;
+    text-transform: capitalize;
+    color: transparent;
+    transition: all .3s;
+    visibility: hidden;
+  }
+
+  &--active {
+    &>.input__input {
+      padding: .7rem 2rem;
+    }
+
+    &>.input__label {
+      transform: scale(0);
+    }
+  }
+
+  &--invalid {
+    background-image: linear-gradient(to right, var(--color-red) 100%, transparent 100%) !important;
+
+    &>p {
+      color: lighten(red, 20%);
+      transform: translate(0);
+      visibility: visible;
+    }
+  }
+}

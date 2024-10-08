@@ -1,0 +1,32 @@
+.reserved-note {
+
+  background-color: $color-opacity-2;
+  font-size: $font-size-large-2;
+  font-weight: 500;
+  height: fit-content;
+  padding: 2rem;
+  color: var(--color-secondary-9);
+  border-radius: 50rem;
+
+  &__link {
+
+    &:visited,
+    &:link,
+    &:active {
+      color: inherit;
+    }
+  }
+
+  &__span {
+    &--number {
+      margin-right: 2rem;
+      background-color: $color-shadow-light-8;
+      box-shadow: 0 0 .5rem $color-shadow-4 inset;
+      border-radius: 50%;
+      width: 4rem;
+      height: 4rem;
+      display: inline-block;
+      text-align: center;
+    }
+  }
+}

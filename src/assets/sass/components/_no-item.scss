@@ -1,0 +1,17 @@
+.no-items {
+  $color: var(--color-red);
+  font-weight: 900;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 3rem;
+  color: lighten(red, 25);
+  margin-top: 3rem;
+
+  & p {
+    margin: 0 auto;
+    width: fit-content;
+    border-bottom: 10px solid var(--color-secondary-3);
+  }
+
+
+}

@@ -1,0 +1,169 @@
+html {
+  font-size: 62.5%;
+  line-height: 1.7;
+  font-weight: 300;
+  font-family: 'Cairo', sans-serif;
+
+  @media (max-width: $bP-biger) {
+    font-size: 56.25%;
+  }
+
+  @media (max-width: $bP-big) {
+    font-size: 56.25%;
+  }
+}
+
+.heading--primary {
+  font-size: $font-size-large-5;
+  font-weight: 100;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  color: var(--color-secondary-8);
+}
+
+.heading--secondary {
+  $time: .7s;
+  $time-s: .4s;
+  font-size: $font-size-large-3;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin: 2rem auto;
+  text-align: center;
+  width: max-content;
+  padding: .5rem 2rem;
+  border: 2px solid var(--color-main-6);
+  color: var(--color-secondary-7);
+  position: relative;
+  transition: all $time $time-s;
+  transition-delay: color $time;
+  z-index: 9;
+
+
+
+  &::after,
+  &::before {
+    content: "";
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: var(--color-secondary-7);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all $time;
+    z-index: -1;
+  }
+
+  &::after {
+    right: -3rem
+  }
+
+  &:hover::after {
+    right: 0px
+  }
+
+  &::before {
+    left: -3rem
+  }
+
+  &:hover::before {
+    left: -1px
+  }
+
+  &:hover {
+    color: var(--color-secondary)
+  }
+
+
+  &:hover::after,
+  &:hover::before {
+    top: -1px;
+    transform: translate(0, 0);
+    width: calc(50% + 2px);
+    height: calc(100% + 2px);
+    border-radius: 0;
+    background-color: var(--color-main-6);
+  }
+}
+
+.heading--tertiary {
+  font-size: $font-size-large-3 + .2rem;
+  text-transform: capitalize;
+  font-weight: 700;
+  color: var(--color-secondary-6);
+  position: relative;
+  width: max-content;
+}
+
+.heading--forth {
+  font-size: $font-size-large-2;
+  text-transform: capitalize;
+  font-weight: 700;
+  color: var(--color-secondary-8);
+
+  &--colored {
+    color: var(--color-main-3a);
+  }
+
+  &--white {
+    color: var(--color-white);
+  }
+}
+
+
+
+
+.paragraph {
+  width: min(95%, 60ch);
+  color: var(--color-secondary-5);
+
+  &--small {
+    font-size: $font-size-small;
+  }
+
+  &--default {
+    font-size: $font-size-default;
+  }
+
+  &--large-1 {
+    font-size: $font-size-large-1;
+  }
+
+  &--large-2 {
+    font-size: $font-size-large-2;
+  }
+
+  &--bold {
+    font-weight: 600;
+  }
+
+  &--capitalize {
+    text-transform: capitalize;
+  }
+  &--article {
+    text-transform: capitalize;
+    color: var(--color-secondary-6);
+    text-align: left;
+    width: 100%;
+    margin: 2rem;
+  }
+}
+
+.text {
+
+  &--big {
+    font-size: 5rem;
+  }
+
+  &--bold {
+    font-weight: 700;
+  }
+
+  &--capitalize {
+    text-transform: capitalize;
+  }
+
+  &--colored {
+    color: var(--color-main-4);
+  }
+}

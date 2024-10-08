@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "safwa-8758a"
+  },
+  "targets": {
+    "safwa-8758a": {
+      "hosting": {
+        "app": [
+          "myapp-app"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}

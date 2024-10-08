@@ -1,0 +1,42 @@
+.u-margin-bottom-7 {
+  margin-bottom: 7rem;
+}
+
+.u-margin-top-7 {
+  margin-top: 7rem;
+}
+
+.u-margin-top-10 {
+  margin-top: 10rem !important;
+}
+
+.u-align-center {
+  text-align: center;
+}
+
+.u-margin-center {
+  margin: 0 auto;
+}
+
+.rotated-background {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  background-color: var(--color-secondary-0);
+  height: 100%;
+  transform: rotate(-7deg);
+  width: 150vw;
+  transform-origin: bottom left;
+  z-index: -1;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.max-width {
+      width: var(--max-width);
+  max-width: 90%;
+}

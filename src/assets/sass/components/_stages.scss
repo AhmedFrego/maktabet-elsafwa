@@ -1,0 +1,126 @@
+.stage {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vw;
+  max-width: 35rem;
+  box-shadow: 0.5rem 0.5rem 1rem $color-shadow-2, -0.5rem -0.5rem 1rem $color-shadow-2;
+  padding-bottom: 1.5vw;
+
+  &__subs {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgb(238, 238, 238);
+    transition: all .5s;
+    transform: rotate(20deg) translateY(-8rem);
+    opacity: 0;
+
+  }
+
+  &__sub {
+    background-color: #03a9f4;
+    color: white;
+    font-size: 2rem;
+    font-weight: 500;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // transform: scale(0);
+    transition: all .5s;
+  }
+
+  & .heading--tertiary::after {
+    content: "";
+    width: 80%;
+    height: 0.5rem;
+    position: absolute;
+    bottom: -0.5rem;
+    left: 10%;
+  }
+
+  &__img {
+    width: 100%;
+    height: 30rem;
+    display: flex;
+    position: relative;
+    z-index: 3;
+  }
+
+  &__img-box {
+    position: relative;
+    height: fit-content;
+    overflow: hidden;
+    margin-bottom: -2.5rem;
+
+    &::before {
+      content: "";
+      background-color: var(--color-white);
+      width: 108%;
+      height: 40%;
+
+      position: absolute;
+      bottom: -19%;
+      right: -4%;
+      transform-origin: top center;
+      transform: rotate(20deg);
+      transition: all 0.5s;
+      z-index: 55;
+    }
+
+    &::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 4;
+      opacity: 0.7;
+    }
+  }
+
+  &:hover &__img-box::before {
+    transform: rotate(-20deg);
+  }
+
+  &:hover>.stage__subs {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  &:hover>.btn-colored {
+    color: var(--color-white);
+
+    &::before {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  @each $class,
+  $color in (-red, #f44036),
+  (-green, #009688),
+  (-blue, #03a9f4) {
+    &-#{$class} {
+      .stage__img-box::after {
+        background-color: $color;
+        opacity: .4;
+      }
+
+      & .heading--tertiary::after {
+        background-color: $color;
+      }
+
+      & .btn-colored {
+        color: $color;
+        border: 3px solid $color;
+
+        &::before {
+          background-color: $color;
+        }
+      }
+    }
+  }
+}

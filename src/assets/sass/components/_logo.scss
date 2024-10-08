@@ -1,0 +1,49 @@
+.main-logo {
+  font-size: 3rem;
+  font-weight: 900;
+  position: relative;
+  display: flex;
+  cursor: pointer;
+
+  &>* {
+    transition: all .5s;
+  }
+
+  &--1 {
+    color: var(--color-main-9);
+  }
+
+  &--2 {
+    position: absolute;
+    font-size: 1.3rem;
+    color: var(--color-main-5);
+    transform: translate(-2rem, 3.2rem);
+    width: max-content;
+  }
+
+  &--3 {
+    color: var(--color-main-9);
+  }
+
+  &:hover {
+    & .main-logo--2 {
+      transform: translate(-8rem, 2rem);
+      color: var(--color-secondary-5);
+    }
+
+    & .main-logo--3 {
+      transform: translateX(-4.5ch);
+    }
+
+    &>.main-logo--1,
+    & .main-logo--3 {
+      color: var(--color-main-8);
+    }
+
+    & .main-logo--web {
+      transform: translate(3em, 2em);
+    }
+  }
+
+}
+

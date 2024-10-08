@@ -1,0 +1,39 @@
+.status-bar {
+  content: '';
+  height: 2px;
+  width: 100vw;
+  background: var(--color-main-5);
+  position: absolute;
+  bottom: 0;
+  display: block;
+  transition: all .5s;
+
+  &.status-bar--red {
+    background: lighten(red, 30);
+  }
+
+  &.status-bar--green {
+    background: lighten(#009688, 10)
+  }
+}
+
+
+.status__message {
+
+  width: 50rem;
+  height: 5rem;
+  font-size: $font-size-large-2;
+  font-weight: 700;
+  color: white;
+  @include flexCenter;
+  position: fixed;
+  left: calc(50% - 25rem);
+  animation: fadeOut 1.5s both ;
+  z-index: 5000;
+
+  &--green {
+    background-color: #009688;
+
+  }
+
+}

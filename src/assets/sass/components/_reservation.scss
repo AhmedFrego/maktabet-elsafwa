@@ -1,0 +1,153 @@
+.reservation {
+  background-color: var(--color-secondary);
+  max-width: 40rem;
+  flex: 0 0 35rem;
+
+  padding: 2rem;
+  box-shadow: 0 0 .5rem $color-shadow-2;
+  transition: all .4s;
+  transform: translateY(2rem);
+  position: relative;
+  z-index: 3;
+  overflow: hidden;
+  justify-content: space-between !important;
+
+  &>* {
+    width: 100%;
+  }
+
+  &__title {
+    text-align: center;
+  }
+
+
+  &__date {
+    font-size: $font-size-small;
+    font-weight: 500;
+  }
+
+  &--done {
+    &::before {
+      content: 'خالص';
+      font-weight: 900;
+      font-size: $font-size-large-2;
+      transform: rotate(-45deg);
+      position: absolute;
+      top: .5rem;
+      left: -4.5rem;
+      padding: 1rem 2rem;
+      background-color: var(--color-green);
+      width: 15rem;
+      text-align: center;
+      color: var(--color-secondary-1);
+    }
+  }
+
+  &:hover {
+    box-shadow: 0 0 1rem $color-shadow-4;
+    transform: translateY(0rem);
+  }
+
+  // &__notes {}
+
+  &__note {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem 0;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid var(--color-secondary-1);
+    }
+
+    &-sign {
+      width: 2rem;
+      height: 2rem;
+      color: var(--color-green);
+      background-color: transparent;
+      border: none;
+
+      &--cross {
+        color: var(--color-red);
+      }
+    }
+
+    &-text {
+      font-size: $font-size-large-1;
+      font-weight: 500;
+      position: relative;
+      width: 100%;
+    }
+
+
+
+
+
+
+    &-number {
+      position: absolute;
+      left: -1rem;
+      top: 0;
+      background-color: rgba(2, 136, 209, 0.95);
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      text-align: center;
+      color: var(--color-secondary-0);
+    }
+  }
+
+  &__spans {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__span {
+    background-color: $color-shadow-1;
+    text-align: center;
+    font-weight: 500;
+    font-size: $font-size-default;
+
+
+    &--check {
+      background-color: #ccc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      color: var(--color-red);
+      font-weight: 800;
+      opacity: .8;
+
+
+      &-sign {
+        display: block;
+        height: 2rem;
+        width: 2rem;
+        color: var(--color-green);
+      }
+    }
+
+
+    &--done {
+      color: var(--color-secondary-9);
+      position: relative;
+      z-index: 50;
+      font-weight: 900;
+
+      &::before {
+        content: '';
+        background-color: var(--color-green);
+        width: 50%;
+        height: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 40;
+        opacity: .6;
+      }
+    }
+  }
+}

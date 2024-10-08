@@ -1,0 +1,104 @@
+:root {
+  --color-main-0: #E1F5FE;
+  --color-main-1: #B3E5FC;
+  --color-main-2: #81D4FA;
+  --color-main-3: #4FC3F7;
+  --color-main-4: #29B6F6;
+  --color-main-5: #03A9F4;
+  --color-main-6: #039BE5;
+  --color-main-7: #0288D1;
+  --color-main-8: #0277BD;
+  --color-main-9: #01579B;
+
+  --color-main-0a: #80D8FF;
+  --color-main-1a: #40C4FF;
+  --color-main-2a: #00B0FF;
+  --color-main-3a: #0091EA;
+
+
+  --color-gold: #ffc107;
+  --color-red: #f44036;
+  --color-green: #009688;
+  --color-blue: #03a9f4;
+
+  --color-white: #fff;
+  --color-secondary: #fbfbfb;
+  --color-secondary-0: #ECEFF1;
+  --color-secondary-1: #CFD8DC;
+  --color-secondary-2: #B0BEC5;
+  --color-secondary-3: #90A4AE;
+  --color-secondary-4: #78909C;
+  --color-secondary-5: #607D8B;
+  --color-secondary-6: #546E7A;
+  --color-secondary-7: #455A64;
+  --color-secondary-8: #37474F;
+  --color-secondary-9: #263238;
+
+  --border-radius-small: 3px;
+  --border-radius-default: 5px;
+  --border-radius-large: 7px;
+  --border-radius-larger: 9px;
+  --border-radius-largest: 12px;
+
+  --max-width: 120rem;
+
+
+  --sm: 1.5rem;
+  --smallest: 2.5rem;
+  --smaller: 5rem;
+  --small: 8rem;
+  --default: 10rem;
+  --large: 15rem;
+  --larger: 20rem;
+  --largest: 27rem;
+
+}
+
+$color-shadow-1: rgba(#000, .1);
+$color-shadow-2: rgba(#000, .2);
+$color-shadow-4: rgba(#000, .4);
+$color-shadow-6: rgba(#000, .6);
+$color-shadow-8: rgba(#000, .8);
+
+$color-shadow-light-1: rgba(#fff, .1);
+$color-shadow-light-2: rgba(#fff, .2);
+$color-shadow-light-4: rgba(#fff, .4);
+$color-shadow-light-6: rgba(#fff, .6);
+$color-shadow-light-8: rgba(#fff, .8);
+
+$color-opacity-95: rgba(#0288D1, .95);
+$color-opacity-2: rgba(#0288D1, .2);
+
+
+
+
+$font-size-small: 1.4rem;
+$font-size-default: 1.6rem;
+$font-size-large-1: 1.8rem;
+$font-size-large-2: 2.3rem;
+$font-size-large-3: 3rem;
+$font-size-large-4: 4rem;
+$font-size-large-5: 5rem;
+
+$margin-section-smallest:2.5rem auto;
+$margin-section-smaller:5rem auto;
+$margin-section-small:8rem auto;
+$margin-section-default:10rem auto;
+$margin-section-large:15rem auto;
+$margin-section-larger:20rem auto;
+$margin-section-largest:27rem auto;
+
+$padding-section-smallest:2.5rem 0;
+$padding-section-smaller:5rem 0;
+$padding-section-small:8rem 0;
+$padding-section-default:10rem 0;
+$padding-section-large:15rem 0;
+$padding-section-larger:20rem 0;
+$padding-section-largest:27rem 0;
+
+$bP-smallest:62.5em;
+$bP-smaller:43.75em;
+$bP-small:50em;
+$bP-big:62.5em;
+$bP-biger:68.75em;
+$bP-bigest:75em;
