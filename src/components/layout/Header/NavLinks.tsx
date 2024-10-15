@@ -12,6 +12,7 @@ const navLinks: navlink[] = [
 	{ title: "مذكرات", path: "notes" },
 	{ title: "المذكرات المطلوبة ", path: "reserved-notes" },
 	{ title: "حجوزات", path: "reservations" },
+	{ title: "المستخدم", path: "user" },
 ];
 
 export const NavLinks = () => {
