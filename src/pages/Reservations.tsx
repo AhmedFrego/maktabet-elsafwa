@@ -9,7 +9,7 @@ import NoItems from "../components/UI/NoItems";
 
 import searchActions from "../store/search-slice";
 
-const Reservations = () => {
+export const Reservations = () => {
   const dispatch = useDispatch();
   const reservations = useSelector((state: RootState) => state.reservation.reaservations) as ReservationClass[];
   const searchValue = useSelector((state: RootState) => state.search.value);
@@ -30,4 +30,3 @@ const Reservations = () => {
   );
 };
 
-export default Reservations;

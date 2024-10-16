@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 
-import WelcomePage from "./Welcome";
+import {WelcomePage} from "./";
 
 import DescripedImg from "../components/DescripedImg";
 
@@ -12,7 +12,7 @@ import { spike } from "../functions/spiked";
 import TitledSection from "../components/layout/TitledSection";
 import { stages } from "../store/DUMMY-DATA/stages";
 
-const FullPage = () => {
+export const FullPage = () => {
 
   useEffect(() => {
     spike();
@@ -33,4 +33,3 @@ const FullPage = () => {
   );
 };
 
-export default FullPage;

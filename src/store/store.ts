@@ -1,24 +1,18 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { NotesReducer } from "./notes-slice";
-import { authReducer } from "./auth-slice";
-import { searchReducer } from "./search-slice";
-import { statusReducer } from "./status-slice";
-import { modalReducer } from "./modal-slice";
-import { historyReducer } from "./history-slice";
-import { reaservationReducer } from "./reservation-slice";
+import { NotesReducer, searchReducer, statusReducer, modalReducer, historyReducer, reaservationReducer, userReducer } from "./";
 
 const store = configureStore({
-  reducer: {
-    notes: NotesReducer,
-    authintication: authReducer,
-    search: searchReducer,
-    statusBar: statusReducer,
-    modal: modalReducer,
-    history: historyReducer,
-    reservation: reaservationReducer,
-    
-  },
-  middleware: (x) => x({ serializableCheck: false }),
+	reducer: {
+		notes: NotesReducer,
+		// authintication: authReducer,
+		search: searchReducer,
+		statusBar: statusReducer,
+		modal: modalReducer,
+		history: historyReducer,
+		reservation: reaservationReducer,
+		user: userReducer,
+	},
+	middleware: (x) => x({ serializableCheck: false }),
 });
 
 export default store;

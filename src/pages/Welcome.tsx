@@ -1,7 +1,7 @@
 import React from "react";
 import { angleDoubleDown } from "../assets/SVGs";
 
-const Welcome = () => {
+export const WelcomePage = () => {
   return (
     <>
       <section className="section-home">
@@ -28,4 +28,3 @@ const Welcome = () => {
   );
 };
 
-export default Welcome;

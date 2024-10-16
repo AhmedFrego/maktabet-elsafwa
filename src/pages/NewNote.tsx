@@ -15,7 +15,7 @@ import { noteManager } from "../store/database/notes-manager";
 import { supabase } from "../store/supabase/supabaseClient";
 import { TablesInsert } from "../database.types";
 
-const NewNote: FC<{ note?: NoteClass }> = (props) => {
+export const NewNote: FC<{ note?: NoteClass }> = (props) => {
 	const insertNote = async (note: TablesInsert<"notes">) => {
 		const { error } = await supabase.from("notes").insert(note);
 		if (error) throw new Error(error.message);
@@ -256,4 +256,3 @@ const NewNote: FC<{ note?: NoteClass }> = (props) => {
 	);
 };
 
-export default NewNote;

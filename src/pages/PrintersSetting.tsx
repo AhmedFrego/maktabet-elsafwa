@@ -3,7 +3,7 @@ import { useInput } from "../hooks/use-input";
 import Input from "../components/Input";
 import TitledSection from "../components/layout/TitledSection";
 
-const PrintersSetting = () => {
+export const PrintersSetting = () => {
   const oldValue = localStorage.getItem("sideNote") || "";
   const {
     arabicValue,
@@ -32,4 +32,3 @@ const PrintersSetting = () => {
   );
 };
 
-export default PrintersSetting;

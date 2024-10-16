@@ -1,27 +1,35 @@
 import React, { FormEvent } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
 import Input from "../components/Input";
 import { useInput } from "../hooks/use-input";
 import { supabase } from "../store/supabase/supabaseClient";
+import { RootState, userActions } from "../store";
+import { useNavigate } from "react-router";
 
-export const User = () => {
-	const loginHandler = async () => {
-		const { data, error } = await supabase.auth.signInWithPassword({
-			email: emailValue,
-			password: passwordValue,
-		});
-		return { data, error };
-	};
+export const LoginPage = () => {
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
+	const isLoggedIn = useSelector((state: RootState) => state.user.isLoggedIn);
+	const [errorMessage, seterrorMessage] = React.useState("");
+
+	React.useEffect(() => isLoggedIn && navigate("/profile-info"), [isLoggedIn, navigate]);
+
 	const handleLogin = async (e: FormEvent) => {
 		e.preventDefault();
-		loginHandler().then(async (data) => {
-			console.log("user-id", data.data.user.id);
-
-			await supabase
-				.from("notes")
-				.select()
-				// .textSearch("id", "53b0e1b4-b824-46f3-b96b-22c63807491c")
-				.then((data) => console.log("user", data));
-		});
+		await supabase.auth
+			.signInWithPassword({
+				email: emailValue,
+				password: passwordValue,
+			})
+			.then(async (returns) => {
+				const { data, error } = returns;
+				seterrorMessage(error ? error.message : "");
+				if (!error && !!data) {
+					dispatch(userActions.logIn(data));
+					navigate("/");
+				}
+			});
 	};
 
 	const {
@@ -42,11 +50,11 @@ export const User = () => {
 
 	return (
 		<form className={"container flex flex--column"} onSubmit={handleLogin}>
+			<p style={{ fontSize: "30px" }}>*{errorMessage}*</p>
+
 			<Input
 				containerClass={emailContainerCalss + " input--form"}
-				inputClass="input__input"
 				label="الإيميل"
-				labelClass="input__label"
 				value={emailValue}
 				changeHandler={emailChangrHandler}
 				blurHandler={emailBlurHandler}
@@ -55,9 +63,7 @@ export const User = () => {
 			/>
 			<Input
 				containerClass={passwordContainerCalss + " input--form"}
-				inputClass="input__input"
 				label="الرقم السري"
-				labelClass="input__label"
 				value={passwordValue}
 				changeHandler={passwordChangrHandler}
 				blurHandler={passwordBlurHandler}

@@ -17,7 +17,7 @@ interface NotesProps {
   notes: NoteClass[];
 }
 
-const Notes: FC<NotesProps> = (props) => {
+export const Notes: FC<NotesProps> = (props) => {
   const dispatch = useDispatch();
   const noItems = useSelector((state: RootState) => state.search.noItems);
 
@@ -44,4 +44,3 @@ const Notes: FC<NotesProps> = (props) => {
   );
 };
 
-export default Notes;

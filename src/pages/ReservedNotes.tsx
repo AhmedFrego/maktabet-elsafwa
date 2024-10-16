@@ -1,12 +1,12 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { NoteClass } from "../models/NoteClass";
-import { RootState } from "../store/store";
+import { RootState } from "../store";
 import ReservedNote from "../components/ReservedNote";
 import TitledSection from "../components/layout/TitledSection";
 import NoItems from "../components/UI/NoItems";
 
-const ReservedNotes = () => {
+export const ReservedNotes = () => {
   const reservedNotes = useSelector((state: RootState) => state.reservation.reservedNotes) as NoteClass[];
 
   return (
@@ -20,4 +20,3 @@ const ReservedNotes = () => {
   );
 };
 
-export default ReservedNotes;
