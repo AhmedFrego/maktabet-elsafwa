@@ -1,6 +1,7 @@
-import { MainNavLink } from "./";
 import { Outlet } from "react-router-dom";
-import { user } from "../../../assets/SVGs";
+
+import { MainNavLink } from "./";
+import { user } from "assets/SVGs";
 
 interface navlink {
 	title: string | JSX.Element;

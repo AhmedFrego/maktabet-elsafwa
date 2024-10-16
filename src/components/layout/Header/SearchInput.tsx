@@ -1,13 +1,12 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-
-import Input from "../../Input";
-import { search } from "../../../assets/SVGs";
-
-import { useInput } from "../../../hooks/use-input";
-
-import searchActions from "../../../store/search-slice";
 import { useLocation } from "react-router";
+
+import { search } from "assets/SVGs";
+
+import { Input } from "components/";
+import { useInput } from "hooks/";
+import { searchActions } from "store/";
 
 export const SearchInput = () => {
 	const { value, clickHandler, resetValue, containerClass, changeHandler, blurHandler, focusHandler } = useInput({

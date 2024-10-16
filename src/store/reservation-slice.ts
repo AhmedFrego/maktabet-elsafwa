@@ -60,4 +60,4 @@ const reaservationSlice = createSlice({
 });
 
 export const reaservationReducer = reaservationSlice.reducer;
-export default reaservationSlice.actions;
+export const reservationActions =  reaservationSlice.actions;

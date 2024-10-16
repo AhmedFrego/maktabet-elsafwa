@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
-import { RootState } from "../../../store/store";
+
 import { LogoMain, NavLinks, SearchInput } from "./";
 
-import { status } from "../../../store/status-slice";
+import { status ,RootState} from "store/";
 
-const Header = () => {
+export const Header = () => {
 	const statusBar = useSelector((state: RootState) => state.statusBar.status);
 
 	let statusBarCalss = "";
@@ -26,4 +26,3 @@ const Header = () => {
 	);
 };
 
-export default Header;

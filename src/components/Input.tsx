@@ -1,5 +1,5 @@
 import React, { FC, ElementType, HTMLAttributes, useState } from "react";
-import { eye, eyeSlash } from "../assets/SVGs";
+import { eye, eyeSlash } from "assets/SVGs";
 
 interface inputProps extends HTMLAttributes<HTMLOrSVGElement> {
 	id?: string;
@@ -19,7 +19,7 @@ interface inputProps extends HTMLAttributes<HTMLOrSVGElement> {
 	invalidTextClickHandler?: () => void;
 }
 
-const Input: FC<inputProps> = ({ tag: Tag = "input", ...inputProps }) => {
+export const Input: FC<inputProps> = ({ tag: Tag = "input", ...inputProps }) => {
 	const [modifyType, SetModifyType] = useState(inputProps.type);
 	const showPasswordHandler = () => (modifyType === "password" ? SetModifyType("text") : SetModifyType("password"));
 
@@ -54,4 +54,3 @@ const Input: FC<inputProps> = ({ tag: Tag = "input", ...inputProps }) => {
 		</div>
 	);
 };
-export default Input;

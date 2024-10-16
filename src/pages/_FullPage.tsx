@@ -1,35 +1,23 @@
 import React from "react";
-import { useEffect } from "react";
 
-import {WelcomePage} from "./";
+import { WelcomePage } from "pages/";
 
-import DescripedImg from "../components/DescripedImg";
-
-import Satge from "../components/Satge";
-
-import { spike } from "../functions/spiked";
-
-import TitledSection from "../components/layout/TitledSection";
-import { stages } from "../store/DUMMY-DATA/stages";
+import { DescripedImg, Satge } from "components/";
+import { TitledSection } from "components/layout";
+import { stages } from "store/DUMMY-DATA/stages";
 
 export const FullPage = () => {
-
-  useEffect(() => {
-    spike();
-  }, []);
-
-  return (
-    <>
-      <WelcomePage />
-      <TitledSection
-        id="notes"
-        passedClass="articles"
-        extraClass="clickable"
-        title="مذكرات"
-        to="/notes"
-        children={<DescripedImg Component={Satge} data={[stages, 0, 6]} />}
-      />
-    </>
-  );
+	return (
+		<>
+			<WelcomePage />
+			<TitledSection
+				id="notes"
+				passedClass="articles"
+				extraClass="clickable"
+				title="مذكرات"
+				to="/notes"
+				children={<DescripedImg Component={Satge} data={[stages, 0, 6]} />}
+			/>
+		</>
+	);
 };
-

@@ -1,11 +1,11 @@
 import React, { FormEvent } from "react";
+import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 
-import Input from "../components/Input";
-import { useInput } from "../hooks/use-input";
-import { supabase } from "../store/supabase/supabaseClient";
-import { RootState, userActions } from "../store";
-import { useNavigate } from "react-router";
+import { Input } from "components/Input";
+import { useInput } from "hooks/use-input";
+import { supabase } from "store/supabase/supabaseClient";
+import { RootState, userActions } from "store/";
 
 export const LoginPage = () => {
 	const dispatch = useDispatch();

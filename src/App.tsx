@@ -2,11 +2,10 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { Route, Routes, Navigate } from "react-router-dom";
 
-import Layout from "./components/layout/Layout";
+import { Layout } from "./components/layout";
 import { Reservations, NewNote, FullPage, PrintersSetting, ReservedNotes, LoginPage, ProfileInfo } from "./pages";
 
-import reservationActions from "./store/reservation-slice";
-import notesActions from "./store/notes-slice";
+import { notesActions, reservationActions } from "./store";
 
 import { spike } from "./functions/spiked";
 import "./App.scss";

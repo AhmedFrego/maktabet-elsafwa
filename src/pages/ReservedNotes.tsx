@@ -1,10 +1,13 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { NoteClass } from "../models/NoteClass";
-import { RootState } from "../store";
-import ReservedNote from "../components/ReservedNote";
-import TitledSection from "../components/layout/TitledSection";
-import NoItems from "../components/UI/NoItems";
+
+import { RootState } from "store/";
+
+import { NoteClass } from "models/NoteClass";
+
+import {ReservedNote} from "components/";
+import {TitledSection} from "components/layout";
+import {NoItems} from "components/UI";
 
 export const ReservedNotes = () => {
   const reservedNotes = useSelector((state: RootState) => state.reservation.reservedNotes) as NoteClass[];

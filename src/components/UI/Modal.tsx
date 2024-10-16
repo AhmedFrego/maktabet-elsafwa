@@ -1,9 +1,8 @@
 import React, { FC, FormEvent } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../store/store";
-import modalActions from "../../store/modal-slice";
+import { RootState ,modalActions} from "../../store";
 
-const Modal: FC = ({ children }) => {
+export const Modal: FC = ({ children }) => {
   const show = useSelector((state: RootState) => state.modal.showModal);
   const ModelContent: (new () => React.Component<any, any>) | null = useSelector((state: RootState) => state.modal.modalContent);
   const dispatch = useDispatch();
@@ -23,4 +22,3 @@ const Modal: FC = ({ children }) => {
   );
 };
 
-export default Modal;

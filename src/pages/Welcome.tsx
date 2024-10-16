@@ -1,5 +1,5 @@
 import React from "react";
-import { angleDoubleDown } from "../assets/SVGs";
+import { angleDoubleDown } from "assets/SVGs";
 
 export const WelcomePage = () => {
   return (
@@ -7,7 +7,7 @@ export const WelcomePage = () => {
       <section className="section-home">
         <div className="flex flex--img home-container">
           <div className="home-img">
-            <img src={require("../assets/imgs/445-4451774_vector-png-hd.png")} alt="landing" className="floating-img" />
+            <img src={require("assets/imgs/445-4451774_vector-png-hd.png")} alt="landing" className="floating-img" />
           </div>
           <div className="home-text">
             <h1 className="heading--primary">مرحبا بالصفوة</h1>

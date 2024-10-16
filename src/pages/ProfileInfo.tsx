@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { RootState } from "../store";
+import { RootState } from "store/";
 import { useNavigate } from "react-router";
 
 export const ProfileInfo = () => {

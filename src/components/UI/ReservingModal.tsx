@@ -2,13 +2,12 @@ import React, { FormEvent } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store/store";
-import modalActions from "../../store/modal-slice";
-import reservationActions from "../../store/reservation-slice";
+import {modalActions,reservationActions,notesActions} from "../../store";
 
 import { ReservationClass } from "../../models/ReservationClass";
 
 import { useInput } from "../../hooks/use-input";
-import Input from "../Input";
+import {Input} from "../Input";
 
 import { getArabicNumbers } from "../../functions/getArabicNumbers";
 import { circleXMark, plusCircle, minusCircle } from "../../assets/SVGs";
@@ -16,9 +15,8 @@ import { NoteClass } from "../../models/NoteClass";
 
 import { addReservationToDB } from "../../store/database/reservations-manager";
 
-import noteActions from "../../store/notes-slice";
 
-const ReserveModal = () => {
+export const ReserveModal = () => {
   const dispatch = useDispatch();
   const temporarilyNotes = useSelector((state: RootState) => state.reservation.temporarilyNotes);
   const AllNotes = useSelector((state: RootState) => state.notes.AllNotes);
@@ -72,7 +70,7 @@ const ReserveModal = () => {
 
       reserve.reservedNotes.forEach((note) => {
         const oldnote = AllNotes.filter((remainingNote) => note.id === remainingNote.id)[0];
-        dispatch(noteActions.addNote({ ...note, reserved: oldnote.reserved + note.reserved }));
+        dispatch(notesActions.addNote({ ...note, reserved: oldnote.reserved + note.reserved }));
       });
 
       dispatch(reservationActions.endReserving());
@@ -168,4 +166,3 @@ const ReserveModal = () => {
   );
 };
 
-export default ReserveModal;

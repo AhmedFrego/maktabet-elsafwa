@@ -25,4 +25,4 @@ const statusBarSlice = createSlice({
 });
 
 export const statusReducer = statusBarSlice.reducer;
-export default statusBarSlice.actions;
+export const statusBarActions =  statusBarSlice.actions;

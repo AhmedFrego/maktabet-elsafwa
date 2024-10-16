@@ -1,27 +1,27 @@
-import React, { FC, FormEvent, useState } from "react";
-import Input from "../components/Input";
-import { useInput } from "../hooks/use-input";
-
-import notesActions from "../store/notes-slice";
-import modalActions from "../store/modal-slice";
-import statusActions, { status } from "../store/status-slice";
-
-import { NoteClass, Stage, SubStageText } from "../models/NoteClass";
+import React from "react";
 import { useDispatch } from "react-redux";
 
-import { getArabicNumbers } from "../functions/getArabicNumbers";
+import { Input } from "components/";
+import { useInput } from "hooks/use-input";
 
-import { noteManager } from "../store/database/notes-manager";
-import { supabase } from "../store/supabase/supabaseClient";
-import { TablesInsert } from "../database.types";
+import { TablesInsert } from "database.types";
 
-export const NewNote: FC<{ note?: NoteClass }> = (props) => {
+import { NoteClass, Stage, SubStageText } from "models/NoteClass";
+
+import { getArabicNumbers } from "functions/getArabicNumbers";
+
+import { notesActions, modalActions } from "store/";
+import { statusBarActions, status } from "store/status-slice";
+import { noteManager } from "store/database/notes-manager";
+import { supabase } from "store/supabase/supabaseClient";
+
+export const NewNote: React.FC<{ note?: NoteClass }> = (props) => {
 	const insertNote = async (note: TablesInsert<"notes">) => {
 		const { error } = await supabase.from("notes").insert(note);
 		if (error) throw new Error(error.message);
 	};
 
-	const addNoteHandler = (e: FormEvent) => {
+	const addNoteHandler = (e: React.FormEvent) => {
 		e.preventDefault();
 		subjectBlurHandler();
 		coverBlurHandler();
@@ -43,13 +43,13 @@ export const NewNote: FC<{ note?: NoteClass }> = (props) => {
 			dispatch(notesActions.addNote(note));
 			dispatch(modalActions.closeModel());
 			dispatch(
-				statusActions.setStatus({
+				statusBarActions.setStatus({
 					status: status.GREEN,
 					message: `تم ${props.note ? "تعديل" : "إضافة"} مذكرة ${subjectValue + " " + SubStageText[subStage]} بنجاح`,
 					time: "1.5s",
 				})
 			);
-			setTimeout(() => dispatch(statusActions.setStatus({ status: status.BLUE, message: " " })), 1500);
+			setTimeout(() => dispatch(statusBarActions.setStatus({ status: status.BLUE, message: " " })), 1500);
 
 			localStorage.setItem("subStage", subStage.toString());
 			localStorage.setItem("year", year.toString());
@@ -65,12 +65,12 @@ export const NewNote: FC<{ note?: NoteClass }> = (props) => {
 	const currentYear = localStorage.getItem("year") || "2023";
 
 	const dispatch = useDispatch();
-	const [subStage, setSubSatge] = useState(props.note ? props.note.subStage : lastSubStage);
-	const [stage, setSatge] = useState(props.note ? props.note.stage : Stage.SECONDARY);
-	const [year, setYear] = useState(props.note ? props.note.year : currentYear);
-	const [confirmedRemove, setConfirmedRemove] = useState(false);
+	const [subStage, setSubSatge] = React.useState(props.note ? props.note.subStage : lastSubStage);
+	const [stage, setSatge] = React.useState(props.note ? props.note.stage : Stage.SECONDARY);
+	const [year, setYear] = React.useState(props.note ? props.note.year : currentYear);
+	const [confirmedRemove, setConfirmedRemove] = React.useState(false);
 
-	const stageChangeHandler = (e: FormEvent<HTMLSelectElement>) => {
+	const stageChangeHandler = (e: React.FormEvent<HTMLSelectElement>) => {
 		setSubSatge(+e.currentTarget.value);
 
 		if (+e.currentTarget.value < 6) setSatge(Stage.PRIMARY);
@@ -80,7 +80,7 @@ export const NewNote: FC<{ note?: NoteClass }> = (props) => {
 		if (+e.currentTarget.value === 14) setSatge(Stage.COLLAGE);
 	};
 
-	const yearChangrHandler = (e: FormEvent<HTMLSelectElement>) => setYear(e.currentTarget.value);
+	const yearChangrHandler = (e: React.FormEvent<HTMLSelectElement>) => setYear(e.currentTarget.value);
 
 	const {
 		blurHandler: subjectBlurHandler,
@@ -138,20 +138,33 @@ export const NewNote: FC<{ note?: NoteClass }> = (props) => {
 				year: +year,
 				path: "/",
 		  }
-		: new NoteClass(subjectValue, teacherValue, 0, 0, coverValue, stage, subStage, SubStageText[subStage], +year, false, +priceValue, "/");
+		: new NoteClass(
+				subjectValue,
+				teacherValue,
+				0,
+				0,
+				coverValue,
+				stage,
+				subStage,
+				SubStageText[subStage],
+				+year,
+				false,
+				+priceValue,
+				"/"
+		  );
 
 	const removeNoteHandler = () => {
 		if (confirmedRemove) {
 			dispatch(notesActions.removeNote(props.note?.id));
 			dispatch(modalActions.closeModel());
 			dispatch(
-				statusActions.setStatus({
+				statusBarActions.setStatus({
 					status: status.GREEN,
 					message: `تم حذف مذكرة ${subjectValue + " " + SubStageText[subStage]} بنجاح`,
 					time: "1.5s",
 				})
 			);
-			setTimeout(() => dispatch(statusActions.setStatus({ status: status.BLUE, message: " " })), 1500);
+			setTimeout(() => dispatch(statusBarActions.setStatus({ status: status.BLUE, message: " " })), 1500);
 		}
 		if (!confirmedRemove) setConfirmedRemove(true);
 	};
@@ -255,4 +268,3 @@ export const NewNote: FC<{ note?: NoteClass }> = (props) => {
 		</form>
 	);
 };
-

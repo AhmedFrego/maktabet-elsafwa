@@ -28,5 +28,5 @@ const notesSlice = createSlice({
   },
 });
 
-export default notesSlice.actions;
+export const notesActions =  notesSlice.actions;
 export const NotesReducer = notesSlice.reducer;
