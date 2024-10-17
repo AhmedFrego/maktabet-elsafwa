@@ -1,13 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { type User as userType, type WeakPassword as WeakPasswordType, type Session as SessionType } from "@supabase/supabase-js";
+import { type User, type WeakPassword, type Session } from "@supabase/supabase-js";
 
-export interface userDataInterface {
-	user: userType | null;
-	session: SessionType | null;
-	weakPassword?: WeakPasswordType | null;
+export interface UserDataInterface {
+	user: User | null;
+	session: Session | null;
+	weakPassword?: WeakPassword | null;
 }
 
-const initialState: userDataInterface & { isLoggedIn: boolean } = {
+const initialState: UserDataInterface & { isLoggedIn: boolean } = {
 	session: null,
 	user: null,
 	weakPassword: null,
@@ -17,9 +17,12 @@ const userSlice = createSlice({
 	name: "user",
 	initialState,
 	reducers: {
-		logIn(state, action: { payload: userDataInterface }) {
+		logIn(state, action: { payload: UserDataInterface }) {
 			state = { ...state, ...action.payload, isLoggedIn: !!action.payload.user };
 			return state;
+		},
+		logout() {
+			return initialState;
 		},
 	},
 });

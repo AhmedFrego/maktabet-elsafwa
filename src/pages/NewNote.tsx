@@ -1,25 +1,35 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 
-import { Input } from "components/";
+import { Input, AutoComplete, ChoiseType } from "components/";
 import { useInput } from "hooks/use-input";
 
-import { TablesInsert } from "database.types";
+import { Tables, TablesInsert } from "database.types";
 
 import { NoteClass, Stage, SubStageText } from "models/NoteClass";
 
 import { getArabicNumbers } from "functions/getArabicNumbers";
 
-import { notesActions, modalActions } from "store/";
+import { notesActions, modalActions, supabase } from "store/";
 import { statusBarActions, status } from "store/status-slice";
 import { noteManager } from "store/database/notes-manager";
-import { supabase } from "store/supabase/supabaseClient";
 
 export const NewNote: React.FC<{ note?: NoteClass }> = (props) => {
 	const insertNote = async (note: TablesInsert<"notes">) => {
 		const { error } = await supabase.from("notes").insert(note);
 		if (error) throw new Error(error.message);
 	};
+
+	const [subjects, setSubjects] = React.useState<Tables<"subjects">[]>([]);
+
+	const retrieveSubjects = async () => {
+		const { data, error } = await supabase.from("subjects").select();
+		setSubjects(data);
+	};
+
+	React.useEffect(() => {
+		retrieveSubjects();
+	});
 
 	const addNoteHandler = (e: React.FormEvent) => {
 		e.preventDefault();
@@ -90,6 +100,7 @@ export const NewNote: React.FC<{ note?: NoteClass }> = (props) => {
 		resetValue: subjectResetValue,
 		value: subjectValue,
 		containerClass: subjectContainerCalss,
+		active: subjectInputIsActive,
 	} = useInput({ validate: (x) => x.trim().length > 0, className: "input", startValue: props.note ? props.note.name : "" });
 
 	const {
@@ -169,18 +180,31 @@ export const NewNote: React.FC<{ note?: NoteClass }> = (props) => {
 		if (!confirmedRemove) setConfirmedRemove(true);
 	};
 
+	const [subjectChoise, setSubjectChoise] = React.useState<ChoiseType>();
+	const subjectHandler = (choise: ChoiseType) => {
+		setSubjectChoise(choise);
+	};
+
+	const [subjectError, setSubjectError] = React.useState("حط إسمي عادي😇😇");
+	const subjectCreateHandler = async (value: string) => {
+		const { error,data } = await supabase.from("subjects").insert({ name: value }).select();
+		error && setSubjectError(error.message);
+		console.log(error)
+	};
+
 	return (
 		<form className={props.note ? "" : "container flex flex--column"} onSubmit={addNoteHandler}>
 			<Input
-				containerClass={subjectContainerCalss + " input--form"}
-				inputClass="input__input"
 				label="إسم المادة"
-				labelClass="input__label"
-				value={subjectValue}
-				changeHandler={subjectChangrHandler}
-				blurHandler={subjectBlurHandler}
-				focusHandler={subjectFocusHandler}
-				invalidText="إسم المادة يا هندسة😁😁"
+				invalidText={subjectError}
+				data={subjects.map((subject) => ({
+					text: subject.name,
+					value: subject.id,
+				}))}
+				dataHandler={subjectHandler}
+				resetable
+				canCreateChoise
+				createChoise={subjectCreateHandler}
 			/>
 			<Input
 				containerClass={teacherContainerCalss + " input--form"}

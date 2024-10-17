@@ -2,7 +2,7 @@ import React, { FormEvent } from "react";
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 
-import { Input } from "components/Input";
+import { Input, Button, ButtonWithFeedback } from "components/";
 import { useInput } from "hooks/use-input";
 import { supabase } from "store/supabase/supabaseClient";
 import { RootState, userActions } from "store/";
@@ -38,7 +38,7 @@ export const LoginPage = () => {
 		focusHandler: emailFocusHandler,
 		value: emailValue,
 		containerClass: emailContainerCalss,
-	} = useInput({ validate: (x: string) => /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g.test(x), className: "input", startValue: "" });
+	} = useInput({ validate: (x: string) => /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g.test(x), className: "input", startValue: "" });
 
 	const {
 		blurHandler: passwordBlurHandler,
@@ -50,8 +50,6 @@ export const LoginPage = () => {
 
 	return (
 		<form className={"container flex flex--column"} onSubmit={handleLogin}>
-			<p style={{ fontSize: "30px" }}>*{errorMessage}*</p>
-
 			<Input
 				containerClass={emailContainerCalss + " input--form"}
 				label="الإيميل"
@@ -71,7 +69,7 @@ export const LoginPage = () => {
 				invalidText="يجب أن يتكون الرقم السري من 8 حروف او أكثر وكدة 🫣🫣"
 				type="password"
 			/>
-			<button className="btn--main btn" type="submit" children={"تسجيل الدخول"} />
+			<ButtonWithFeedback type="submit" children={"تسجيل الدخول"} feedBack={errorMessage} />
 		</form>
 	);
 };

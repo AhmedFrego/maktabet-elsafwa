@@ -1,0 +1,23 @@
+.auto-complete {
+	position: relative;
+
+	&__list {
+		margin-top: -2rem;
+		position: absolute;
+		width: 100%;
+		z-index: 3;
+		max-height: 10rem;
+		max-height: 25rem;
+		overflow-y: scroll;
+	}
+	&__list-item {
+		background-color: var(--color-main-4);
+		font-weight: 600;
+		font-size: large;
+		color: var(--color-main-0);
+		padding: 0.5rem 2rem;
+		&:hover {
+			background-color: var(--color-main-9);
+		}
+	}
+}

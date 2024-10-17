@@ -1,4 +1,4 @@
-export * from "./ProfileInfo";
+export * from "./ProfileInfoPage";
 export * from "./LoginPage";
 export * from "./NewNote";
 export * from "./Notes";

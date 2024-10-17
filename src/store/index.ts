@@ -7,3 +7,4 @@ export * from "./search-slice";
 export * from "./status-slice";
 export * from "./user-slice";
 export * from "./store";
+export * from "./supabase";
